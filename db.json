@@ -1,0 +1,20 @@
+{
+  "listItems": [
+    {
+      "id": "1",
+      "item": "Read good book"
+    },
+    {
+      "id": "2",
+      "item": "Exercise"
+    },
+    {
+      "id": "3",
+      "item": "Do React test Task"
+    },
+    {
+      "id": "4",
+      "item": "Read Redux docs"
+    }
+  ]
+}
