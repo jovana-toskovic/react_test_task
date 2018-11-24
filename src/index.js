@@ -1,11 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-let HelloWorld = () => {
-  return <h1>Hello there World!</h1>
-}
+import App from "./App"
 
 ReactDOM.render(
-  <HelloWorld/>,
+  <App />,
   document.getElementById("root")
 );
