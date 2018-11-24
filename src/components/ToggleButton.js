@@ -24,8 +24,8 @@ class ToggleButton extends Component {
 
       <Fragment>
 
-      <button onClick={(e) => {this.handleToggleButton(e)}} className="rounded-circle border-dark btn btn-sm">
-        <FontAwesomeIcon className={`text-${this.state.isOn ? "dark" : "white"}`} icon={faCircle}/>
+      <button onClick={(e) => {this.handleToggleButton(e)}} className="p-0 px-1 rounded-circle border-dark btn btn-sm">
+        <FontAwesomeIcon className={`text-${this.state.isOn ? "dark" : "white"} p-0`} icon={faCircle}/>
       </button>
 
       </Fragment>
