@@ -2,19 +2,23 @@
   "listItems": [
     {
       "id": "1",
-      "item": "Read good book"
+      "item": "Read good book",
+      "completed": "false"
     },
     {
       "id": "2",
-      "item": "Exercise"
+      "item": "Exercise",
+      "completed": "false"
     },
     {
       "id": "3",
-      "item": "Do React test Task"
+      "item": "Do React test Task",
+      "completed": "false",
     },
     {
       "id": "4",
-      "item": "Read Redux docs"
+      "item": "Read Redux docs",
+      "completed": "false"
     }
   ]
 }
