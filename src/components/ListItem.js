@@ -12,7 +12,6 @@ class ListItem extends Component {
   constructor(props){
     super(props);
     this.state = {
-      item: {}
   
     }
   }
@@ -27,13 +26,13 @@ class ListItem extends Component {
         {
           this.props.items.map((item) => {
             return (
-              <li className="list-group-item ">
+              <li key={item.id} className="list-group-item ">
                 <div className="row">
                   <div className="col-2 d-flex align-items-center">
-                    <ToggleButton />
+                    <ToggleButton item={item}/>
                   </div>
                   <div className="col-7 d-flex align-items-center">
-                    <p className="m-0">{item.item}</p>
+                    <p className="m-0">{item.text}</p>
                   </div>
                   <div className="col-3 d-flex align-items-center">
                     <EditButton />

@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 import Bootstrap from './../../node_modules/bootstrap/dist/css/bootstrap.css'
+import {connect} from 'react-redux'
+import { changeItemStatus } from './../actions/listItemsActions'
 
 
 
@@ -10,13 +12,19 @@ class ToggleButton extends Component {
   constructor(props){
     super(props);
     this.state = {
-      isOn: false
+      item: {}
+
 
     }
   }
 
-  handleToggleButton(e){
-    this.setState((prevState) => ({isOn: !prevState.isOn}))
+  handleToggleButton(item){
+    let newItem = {...item}
+    this.state.item.status == undefined ? newItem.status = !item.status : newItem.status = !this.state.item.status
+    this.setState({item: newItem}, () => {this.props.changeItemStatus(this.state.item)})
+    console.log(this.props.items)
+
+    
   }
 
   render(){
@@ -24,8 +32,8 @@ class ToggleButton extends Component {
 
       <Fragment>
 
-      <button onClick={(e) => {this.handleToggleButton(e)}} className="p-0 px-1 rounded-circle border-dark btn btn-sm">
-        <FontAwesomeIcon className={`text-${this.state.isOn ? "dark" : "white"} p-0`} icon={faCircle}/>
+      <button onClick={(e) => {this.handleToggleButton(this.props.item)}} className="p-0 px-1 rounded-circle border-dark btn btn-sm">
+        <FontAwesomeIcon className={`text-${ this.props.item.status ? "dark" : "white"} p-0`} icon={faCircle}/>
       </button>
 
       </Fragment>
@@ -33,6 +41,10 @@ class ToggleButton extends Component {
   }
 }
 
-export default ToggleButton;
+const mapStateToProps = (state) => {
+  return {
+    items: state.listItems.items
+  }
+}
 
-
+export default connect(mapStateToProps, {changeItemStatus})(ToggleButton)
