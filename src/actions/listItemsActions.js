@@ -23,13 +23,26 @@ export const allListItems = () => dispatch => {
 
 export const changeItemStatus = (item) => dispatch => {
   apiFetch(`/listItems/${item.id}`, 'PUT', item)
-    .then(item => {
-      dispatch({
-        type: CHANGE_ITEM_STATUS,
-        payload: item
-      })
+  .then(item => {
+    dispatch({
+      type: CHANGE_ITEM_STATUS,
+      payload: item
     })
-    .catch(error => {
-      console.log(error);
+  })
+  .catch(error => {
+    console.log(error);
+  })
+}
+
+export const addItem = (item) => dispatch => {
+  apiFetch(`/listItems/`, 'POST', item)
+  .then(item => {
+    dispatch({
+      type: ADD_LIST_ITEM,
+      payload: item
     })
+  })
+  .catch(error => {
+    console.log(error);
+  })
 }

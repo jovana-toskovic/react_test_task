@@ -3,7 +3,7 @@
     {
       "id": "1",
       "text": "Read good book",
-      "status": true
+      "status": false
     },
     {
       "id": "2",
@@ -19,6 +19,26 @@
       "id": "4",
       "text": "Read Redux docs",
       "status": false
+    },
+    {
+      "text": "Bake a cake",
+      "status": false,
+      "id": 5
+    },
+    {
+      "text": "Eat ice-cream",
+      "status": false,
+      "id": 6
+    },
+    {
+      "text": "Make a wish!",
+      "status": false,
+      "id": 7
+    },
+    {
+      "text": "Take care of yourself.",
+      "status": false,
+      "id": 8
     }
   ]
 }

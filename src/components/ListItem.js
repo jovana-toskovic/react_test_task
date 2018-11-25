@@ -26,13 +26,13 @@ class ListItem extends Component {
         {
           this.props.items.map((item) => {
             return (
-              <li key={item.id} className="list-group-item ">
+              <li key={item.id} className="list-group-item list-group-item-action list-group-item-light">
                 <div className="row">
                   <div className="col-2 d-flex align-items-center">
                     <ToggleButton item={item}/>
                   </div>
                   <div className="col-7 d-flex align-items-center">
-                    <p className="m-0">{item.text}</p>
+                    <p className="m-0"><b>{item.text}</b></p>
                   </div>
                   <div className="col-3 d-flex align-items-center">
                     <EditButton />
@@ -43,6 +43,7 @@ class ListItem extends Component {
             )
           })
         }
+        
       </ul>
     ) 
   }

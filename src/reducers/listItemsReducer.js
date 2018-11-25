@@ -17,6 +17,11 @@ export default (state = initialState, action) => {
         ...state,
         items: action.payload
       }
+    case ADD_LIST_ITEM:
+      return {
+        ...state,
+        items: [action.payload, ...state.items]
+      }
 
     case CHANGE_ITEM_STATUS:
       return {
