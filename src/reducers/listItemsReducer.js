@@ -3,11 +3,15 @@ import {
   ADD_LIST_ITEM, 
   EDIT_LIST_ITEM, 
   DELETE_LIST_ITEM,
+  TRY_DELETE_ITEM,
+  QUIT_DELETE_ITEM,
   CHANGE_ITEM_STATUS, 
 } from './../actions/types.js'
 
 const initialState = {
-  items: []
+  items: [],
+  clickDelete: false,
+  itemId: ""
 }
 
 export default (state = initialState, action) => {
@@ -22,6 +26,26 @@ export default (state = initialState, action) => {
         ...state,
         items: [action.payload, ...state.items]
       }
+    case TRY_DELETE_ITEM:
+      return {
+        ...state,
+        clickDelete: true,
+        itemId: action.payload
+      }
+    case QUIT_DELETE_ITEM:
+      return {
+        ...state,
+        clickDelete: false,
+        itemId: "",
+      }
+    case DELETE_LIST_ITEM:
+      return {
+        ...state,
+        items: state.items.filter((item) => {
+
+          return item.id !== action.payload
+        })
+      }     
 
     case CHANGE_ITEM_STATUS:
       return {

@@ -6,39 +6,19 @@
       "status": false
     },
     {
-      "id": "2",
-      "text": "Exercise",
-      "status": false
-    },
-    {
-      "id": "3",
-      "text": "Do React test Task",
-      "status": false
-    },
-    {
-      "id": "4",
-      "text": "Read Redux docs",
-      "status": false
-    },
-    {
-      "text": "Bake a cake",
+      "text": "Bake a cake.",
       "status": false,
-      "id": 5
+      "id": "P8BJBQC"
     },
     {
-      "text": "Eat ice-cream",
+      "text": "Read",
       "status": false,
-      "id": 6
+      "id": "cLIPHda"
     },
     {
-      "text": "Make a wish!",
+      "text": "Redux",
       "status": false,
-      "id": 7
-    },
-    {
-      "text": "Take care of yourself.",
-      "status": false,
-      "id": 8
+      "id": "B0kLHUx"
     }
   ]
 }

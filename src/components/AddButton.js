@@ -11,7 +11,7 @@ class AddButton extends Component {
     super(props);
     this.state = {
       item: {},
-      addingItem: false
+      addingItem: false,
     }
   }
 
@@ -30,7 +30,6 @@ class AddButton extends Component {
     let newItem = {}
     newItem.text = e.target.value
     newItem.status = false
-    newItem.id = this.props.items.length + 1
     this.setState({item: newItem})
   }
 
@@ -57,8 +56,6 @@ class AddButton extends Component {
     
   }
 }
-
-
 
 const mapStateToProps = (state) => {
   return {
