@@ -1,38 +1,33 @@
 import React, { Component, Fragment } from 'react';
-import ListItem from './ListItem'
-import AddButton from './AddButton'
 
+import Bootstrap from './../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-
-
+import ListItems from './ListItems';
+import AddListItem from './AddListItem';
+import DeleteModal from './DeleteModal';
 
 class List extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-
-    }
-  }
 
   render(){
 
     return(
 
-      <div className="container">
-
+      <div className="container mt-5">
         <div className="row justify-content-md-center">
-
           <div className="col-6">
-            <h1> This is a test.</h1>
-            <ListItem />
-            <AddButton />
-            
-            
 
+            <h1 className="text-center">React test Task</h1>
+
+
+            <ListItems />
+
+            <DeleteModal />
+
+            <AddListItem />
+          
           </div>
         </div>
       </div>  
-
     )
   }
 }

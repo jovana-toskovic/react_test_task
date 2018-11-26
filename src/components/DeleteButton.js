@@ -1,41 +1,32 @@
-import React, { Component, Fragment } from 'react';
-import ReactDOM from 'react-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-import Bootstrap from './../../node_modules/bootstrap/dist/css/bootstrap.css'
-import {connect} from 'react-redux'
-import { tryDeleteItem } from './../actions/listItemsActions'
+import React, { Component } from 'react';
+
+import ButtonWithIcon from './ButtonWithIcon';
+
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+
+import {connect} from 'react-redux';
+import { tryDeleteItem } from './../actions/listItemsActions';
 
 
 class DeleteButton extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-    }
-  }
-
-  handleClick(){
-    this.props.tryDeleteItem(this.props.item.id)
-  }
 
   render(){
+
     return (
 
-      <Fragment>
-
-        <button onClick={() => {this.handleClick()}}  className="btn btn-link">
-          <FontAwesomeIcon className="text-dark" icon={faTrashAlt}/>
-        </button>
-
-      </Fragment>
+      <ButtonWithIcon 
+        handleButtonAction={(e) => {this.props.tryDeleteItem(this.props.item.id)}} 
+        argument={this.props.item.id} 
+        buttonClassName={`btn btn-link ${this.props.item.status ? "disabled" : ""}`} 
+        fontClassName={"text-dark"}
+        icon={faTrashAlt} 
+      />
     )
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    click: state.listItems.clickDelete,
-    items: state.listItems.items
   }
 }
 

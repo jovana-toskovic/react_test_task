@@ -5,6 +5,8 @@ import {
   DELETE_LIST_ITEM,
   TRY_DELETE_ITEM,
   QUIT_DELETE_ITEM,
+  TRY_EDIT_ITEM,
+  QUIT_EDIT_ITEM,
   CHANGE_ITEM_STATUS 
 } from './types';
 
@@ -62,17 +64,38 @@ export const quitDeleteItem = () => dispatch => {
   })
 }
 
-export const deleteListItem = (itemId) => dispatch => {
+export const tryEditItem = (itemId) => dispatch => {
+  dispatch({
+    type: TRY_EDIT_ITEM,
+    payload: itemId
+  })
+}
 
+export const quitEditItem = () => dispatch => {
+  dispatch({
+    type: QUIT_EDIT_ITEM
+  })
+}
+
+export const editListItem = (item) => dispatch => {
+  apiFetch(`/listItems/${item.id}`, 'PUT', item)
+  .then(item => {
+    dispatch({
+      type: EDIT_LIST_ITEM,
+      payload: item
+    })
+  })
+  .catch(error => {
+    console.log(error);
+  })
+}
+
+export const deleteListItem = (itemId) => dispatch => {
   apiFetch(`/listItems/${itemId}`, 'DELETE')
   .then((resp) => {
-    console.log(itemId)
     dispatch({
       type: DELETE_LIST_ITEM,
       payload: itemId
-    })
-    dispatch({
-    type: QUIT_DELETE_ITEM
     })
   })
   .catch(error => {

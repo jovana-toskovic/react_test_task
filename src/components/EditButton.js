@@ -1,34 +1,33 @@
 import React, { Component, Fragment } from 'react';
-import ReactDOM from 'react-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
-import Bootstrap from './../../node_modules/bootstrap/dist/css/bootstrap.css'
+
+import ButtonWithIcon from './ButtonWithIcon';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+
+import {connect} from 'react-redux';
+import { tryEditItem } from './../actions/listItemsActions';
 
 
 class EditButton extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
- 
-
-    }
-  }
-
-
 
   render(){
     return (
-
-      <Fragment>
-
-        <button className="btn btn-link">
-          <FontAwesomeIcon className="text-dark" icon={faPencilAlt}/>
-        </button>
-
-      </Fragment>
+      <ButtonWithIcon 
+        handleButtonAction={(e) => {this.props.tryEditItem(this.props.item.id)}} 
+        argument={this.props.item.id} 
+        buttonClassName={`btn btn-link ${this.props.item.status ? "disabled" : ""}`} 
+        fontClassName={"text-dark"}
+        icon={faPencilAlt} 
+      />
     )
   }
 }
 
-export default EditButton;
+const mapStateToProps = (state) => {
+  return {
+  }
+}
+
+export default connect(mapStateToProps, { tryEditItem })(EditButton)
 

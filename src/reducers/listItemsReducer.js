@@ -5,13 +5,16 @@ import {
   DELETE_LIST_ITEM,
   TRY_DELETE_ITEM,
   QUIT_DELETE_ITEM,
+  TRY_EDIT_ITEM,
+  QUIT_EDIT_ITEM,
   CHANGE_ITEM_STATUS, 
 } from './../actions/types.js'
 
 const initialState = {
   items: [],
   clickDelete: false,
-  itemId: ""
+  itemId: "",
+  clickEdit: false
 }
 
 export default (state = initialState, action) => {
@@ -44,7 +47,37 @@ export default (state = initialState, action) => {
         items: state.items.filter((item) => {
 
           return item.id !== action.payload
-        })
+        }),
+        itemId: "",
+        clickDelete: false
+      }
+
+    case TRY_EDIT_ITEM:
+      return {
+        ...state,
+        clickEdit: true,
+        itemId: action.payload
+      }
+    case QUIT_EDIT_ITEM:
+      return {
+        ...state,
+        clickEdit: false,
+        itemId: ""
+      }
+
+    case EDIT_LIST_ITEM:
+      return {
+        ...state,
+        items: state.items.map((item) => {
+          if(item.id !== action.payload.id){
+            return item
+          } else {
+            
+            return action.payload
+          }
+        }),
+        itemId: "",
+        clickEdit: ""
       }     
 
     case CHANGE_ITEM_STATUS:

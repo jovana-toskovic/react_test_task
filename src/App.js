@@ -1,7 +1,9 @@
 import React, { Component, Fragment } from 'react';
+
 import List from './components/List';
-import { Provider } from 'react-redux'
-import store from './store'
+
+import { Provider } from 'react-redux';
+import store from './store';
 
 
 
