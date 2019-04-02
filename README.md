@@ -1,1 +1,1 @@
-# react_test_task
+# Run mock server with command  yarn run json:server

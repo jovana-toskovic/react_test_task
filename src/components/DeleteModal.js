@@ -12,7 +12,7 @@ class DeleteModal extends Component {
 
     return (
 
-      <div>
+
         <Modal show={this.props.click} className="d-flex align-items-center" style={modalStyle}>
 
           <Modal.Body className="list-group-item-danger">Are you sure you want to delete this item?</Modal.Body>
@@ -23,7 +23,7 @@ class DeleteModal extends Component {
           </Modal.Footer>
 
         </Modal>
-      </div>
+
       
 
     )
